@@ -13,8 +13,9 @@
 // mod structs1;
 // mod structs2;
 // mod enums;
-mod cli;
+// mod cli;
+mod match_syntax;
 
 fn main() {
-    cli::fun();
+    match_syntax::fun()
 }
