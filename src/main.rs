@@ -14,8 +14,10 @@
 // mod structs2;
 // mod enums;
 // mod cli;
-mod match_syntax;
+// mod match_syntax;
+// mod exercism;
+mod lifetimes;
 
 fn main() {
-    match_syntax::fun()
+    lifetimes::fun()
 }
