@@ -25,6 +25,24 @@ impl Summary for Tweet {
     }
 }
 
+// Traits as parameters
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.find_author());
+}
+
+pub fn return_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false,
+    }
+}
+
+pub fn hell<T : Summary + Clone>(item: T) {
+    println!("{}", item.find_author());
+}
+
 // for every type that implements the `Summary` trait, we can initialize 
 //the Summary function here or define a default one here
 pub trait Summary {
@@ -51,4 +69,6 @@ pub fn fun(){
 
     println!("1 new tweet: {}", tweet.summarize());
     println!("1 new article: {}", article.summarize());
+    notify(&tweet);
+    println!("{}", return_summarizable().summarize());
 }
